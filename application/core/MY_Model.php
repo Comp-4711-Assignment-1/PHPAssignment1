@@ -3,7 +3,6 @@
 // Note that it doesn't have to follow the normal CodeIgniter naming rules!
 require_once 'DataMapper.php';
 require_once 'Entity.php';
-
 /**
  * Generic data access model, for an RDB.
  * 
@@ -15,14 +14,11 @@ require_once 'Entity.php';
  */
 class MY_Model extends Entity implements DataMapper
 {
-
 	protected $_tableName;   // Which table is this a model for?
 	protected $_keyField; // name of the primary key field
-
 //---------------------------------------------------------------------------
 //  Housekeeping methods
 //---------------------------------------------------------------------------
-
 	/**
 	 * Constructor.
 	 * @param string $tablename Name of the RDB table
@@ -31,19 +27,15 @@ class MY_Model extends Entity implements DataMapper
 	function __construct($tablename = null, $keyfield = 'id')
 	{
 		parent::__construct();
-
 		if ($tablename == null)
 			$this->_tableName = get_class($this);
 		else
 			$this->_tableName = $tablename;
-
 		$this->_keyField = $keyfield;
 	}
-
 //---------------------------------------------------------------------------
 //  Utility methods
 //---------------------------------------------------------------------------
-
 	/**
 	 * Return the number of records in this table.
 	 * @return int The number of records in this table
@@ -53,7 +45,6 @@ class MY_Model extends Entity implements DataMapper
 		$query = $this->db->get($this->_tableName);
 		return $query->num_rows();
 	}
-
 	/**
 	 * Return the field names in this table, from the table metadata.
 	 * @return array(string) The field names in this table
@@ -62,7 +53,6 @@ class MY_Model extends Entity implements DataMapper
 	{
 		return $this->db->list_fields($this->_tableName);
 	}
-
 //---------------------------------------------------------------------------
 //  C R U D methods
 //---------------------------------------------------------------------------
@@ -77,7 +67,6 @@ class MY_Model extends Entity implements DataMapper
 			$object->$name = "";
 		return $object;
 	}
-
 	// Add a record to the DB
 	function add($record)
 	{
@@ -94,7 +83,6 @@ class MY_Model extends Entity implements DataMapper
 		$key = $data[$this->_keyField];
 		$object = $this->db->insert($this->_tableName, $data);
 	}
-
 	// Retrieve an existing DB record as an object
 	function get($key, $key2 = null)
 	{
@@ -104,7 +92,6 @@ class MY_Model extends Entity implements DataMapper
 			return null;
 		return $query->row();
 	}
-
 	// Update a record in the DB
 	function update($record)
 	{
@@ -122,14 +109,12 @@ class MY_Model extends Entity implements DataMapper
 		$this->db->where($this->_keyField, $key);
 		$object = $this->db->update($this->_tableName, $data);
 	}
-
 	// Delete a record from the DB
 	function delete($key, $key2 = null)
 	{
 		$this->db->where($this->_keyField, $key);
 		$object = $this->db->delete($this->_tableName);
 	}
-
 	// Determine if a key exists
 	function exists($key, $key2 = null)
 	{
@@ -139,7 +124,6 @@ class MY_Model extends Entity implements DataMapper
 			return false;
 		return true;
 	}
-
 //---------------------------------------------------------------------------
 //  Aggregate methods
 //---------------------------------------------------------------------------
@@ -150,7 +134,6 @@ class MY_Model extends Entity implements DataMapper
 		$query = $this->db->get($this->_tableName);
 		return $query->result();
 	}
-
 	// Return all records as a result set
 	function results()
 	{
@@ -158,7 +141,6 @@ class MY_Model extends Entity implements DataMapper
 		$query = $this->db->get($this->_tableName);
 		return $query;
 	}
-
 	// Return the most recent records as a result set
 	function trailing($count = 10)
 	{
@@ -170,7 +152,6 @@ class MY_Model extends Entity implements DataMapper
 		$query = $this->db->get($this->_tableName);
 		return $query;
 	}
-
 	// Return filtered records as an array of records
 	function some($what, $which)
 	{
@@ -184,7 +165,6 @@ class MY_Model extends Entity implements DataMapper
 		$query = $this->db->get($this->_tableName);
 		return $query->result();
 	}
-
 	// Determine the highest key used
 	function highest()
 	{
@@ -197,7 +177,6 @@ class MY_Model extends Entity implements DataMapper
 		else
 			return null;
 	}
-
 	// Retrieve first record from a table.
 	function first()
 	{
@@ -206,7 +185,6 @@ class MY_Model extends Entity implements DataMapper
 		$query = $this->db->get($this->_tableName, 1, 1);
 		return $query->result()[0];
 	}
-
 	// Retrieve records from the beginning of a table.
 	function head($count = 10)
 	{
@@ -215,7 +193,6 @@ class MY_Model extends Entity implements DataMapper
 		$query = $this->db->get($this->_tableName);
 		return $query->result();
 	}
-
 	// Retrieve records from the end of a table.
 	function tail($count = 10)
 	{
@@ -227,36 +204,29 @@ class MY_Model extends Entity implements DataMapper
 		$query = $this->db->get($this->_tableName);
 		return $query->result();
 	}
-
 	// truncate the table backing this model
 	function truncate()
 	{
 		$this->db->truncate($this->_tableName);
 	}
-
 }
-
 /**
  * Support for RDB persistence with a compound (two column) key.
  */
 class MY_Model2 extends MY_Model
 {
-
 	protected $_keyField2;  // second part of composite primary key
-
 	// Constructor
-
 	function __construct($tablename = null, $keyfield = 'id', $keyfield2 = 'part')
 	{
 		parent::__construct($tablename, $keyfield);
 		$this->_keyField2 = $keyfield2;
 	}
-
 //---------------------------------------------------------------------------
 //  Record-oriented functions
 //---------------------------------------------------------------------------
 	// Retrieve an existing DB record as an object
-	function get($key1, $key2)
+	function get($key1, $key2 = NULL)
 	{
 		$this->db->where($this->_keyField, $key1);
 		$this->db->where($this->_keyField2, $key2);
@@ -265,7 +235,6 @@ class MY_Model2 extends MY_Model
 			return null;
 		return $query->row();
 	}
-
 	// Update a record in the DB
 	function update($record)
 	{
@@ -285,17 +254,15 @@ class MY_Model2 extends MY_Model
 		$this->db->where($this->_keyField2, $key2);
 		$object = $this->db->update($this->_tableName, $data);
 	}
-
 	// Delete a record from the DB
-	function delete($key1, $key2)
+	function delete($key1, $key2 = NULL)
 	{
 		$this->db->where($this->_keyField, $key1);
 		$this->db->where($this->_keyField2, $key2);
 		$object = $this->db->delete($this->_tableName);
 	}
-
 	// Determine if a key exists
-	function exists($key1, $key2)
+	function exists($key1, $key2 = NULL)
 	{
 		$this->db->where($this->_keyField, $key1);
 		$this->db->where($this->_keyField2, $key2);
@@ -304,7 +271,6 @@ class MY_Model2 extends MY_Model
 			return false;
 		return true;
 	}
-
 //---------------------------------------------------------------------------
 //  Composite functions
 //---------------------------------------------------------------------------
@@ -317,14 +283,12 @@ class MY_Model2 extends MY_Model
 		$query = $this->db->get($this->_tableName);
 		return $query->result();
 	}
-
 	// Delete all records associated with a member
 	function delete_some($key)
 	{
 		$this->db->where($this->_keyField, $key);
 		$object = $this->db->delete($this->_tableName);
 	}
-
 	// Determine the highest secondary key associated with a primary
 	function highest_some($key)
 	{
@@ -339,7 +303,6 @@ class MY_Model2 extends MY_Model
 		}
 		return $highest;
 	}
-
 //---------------------------------------------------------------------------
 //  Aggregate functions
 //---------------------------------------------------------------------------
@@ -351,12 +314,9 @@ class MY_Model2 extends MY_Model
 		$query = $this->db->get($this->_tableName);
 		return $query->result();
 	}
-
 }
-
 // Include any other persistence implementations, so that they can be used
 // as base models for any in a webapp.
-
 include_once 'RDB_Model.php';		// backed by an RDB
 include_once 'Memory_Model.php';	// In-memory only
 include_once 'CSV_Model.php';		// CSV persisted

@@ -1,0 +1,4 @@
+ItemId,name,desc,attr1,attr2,attr3,img
+1,Item 1,description of item 1,75,76,77,assets/images/item1.png
+2,Item 2,description of item 2,420,421,422,assets/images/item2.png
+3,Item 3,description of item 3,13,14,15,assets/images/item3.png
