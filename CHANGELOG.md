@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.1.0] - 2018-02-09
+## Added
+- Skeleton for info API endpoint
+
 ## [1.0.0] - 2018-02-09
 ## Added
 - Controllers
