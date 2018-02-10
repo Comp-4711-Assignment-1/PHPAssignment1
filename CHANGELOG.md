@@ -6,6 +6,20 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.0.0] - 2018-02-09
+## Added
+- Controllers
+    - Home
+    - Catalog
+    - About
+- View
+    - Home
+    - Catalog
+    - About
+- Model Template
+- Boostrap CSS
+- Toolbar
+
 ## [0.1.0] - 2018-02-09
 ### Added
 - Changelog
