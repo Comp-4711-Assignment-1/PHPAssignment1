@@ -21,6 +21,7 @@ class Welcome extends Application
 	{
 		$this->data['pagetitle'] = 'Title located in Controller::index()';
 		$this->data['pagebody'] = 'Home';
+
 		$this->render(); 
 	}
 }
