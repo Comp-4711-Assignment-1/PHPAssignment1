@@ -1,0 +1,3 @@
+SightID,Name,Description,Accuracy,FireRate,Damage,Filename
+1,Red Dot,Short Range Sight,2,3,0,assets/images/sight1.PNG
+2,ACOG,Medium Range Sight,4,1,0,assets/images/sight2.PNG
