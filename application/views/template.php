@@ -19,13 +19,13 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
+            <li class="nav-item text-center">
                 <a class="nav-link" href="/">Home</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item text-center">
                 <a class="nav-link" href="/Catalog">Catalog</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item text-center">
                 <a class="nav-link" href="/About">About</a>
             </li>
             </ul>
