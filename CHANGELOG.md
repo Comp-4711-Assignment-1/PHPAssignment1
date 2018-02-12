@@ -6,14 +6,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-## [1.3.0] - 2018-02-11
-## Changed
-- Homepage now displays a set and its stats
-- Sets can now be selected by a dropdown menu
+## [1.1.4] - 2018-02-11
+## Added
+- Team member information to About page.
+- Changed image paths to be absolute.
 
-## [1.2.0] - 2018-02-11
-## Changed
-- Catalog now lists all items
+## [1.1.3] - 2018-02-11
+## Added
+- Background image
+
+## [1.1.2] - 2018-02-11
+## Added
+- Images and Data .CSVs
 
 ## [1.1.1] - 2018-02-11
 ## Changed

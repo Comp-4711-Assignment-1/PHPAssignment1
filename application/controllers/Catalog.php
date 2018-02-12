@@ -57,7 +57,7 @@ class Catalog extends Application
 				'acc' => $n->Accuracy,
 				'fr' => $n->FireRate,
 				'dmg' => $n->Damage,
-				'img' => '<img src="' . $n->Filename . '" class="img-fluid">'
+				'img' => '<img src="/' . $n->Filename . '" class="img-fluid">'
 			));
 		}
 
