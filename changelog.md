@@ -6,10 +6,35 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.1.3] - 2018-02-11
+## Added
+- Background image
+
+## [1.1.2] - 2018-02-11
+## Added
+- Images and Data .CSVs
+
+## [1.1.1] - 2018-02-11
+## Changed
+- Centered navigation bar text
+
+## [1.1.0] - 2018-02-09
+## Added
+- Skeleton for info API endpoint
+
 ## [1.0.0] - 2018-02-09
-- Added Home, Catalog, and About pages
-- Catalog page now pulls data dynamically from CSV files
-- Styled webapp with Bootstrap
+## Added
+- Controllers
+    - Home
+    - Catalog
+    - About
+- View
+    - Home
+    - Catalog
+    - About
+- Model Template
+- Boostrap CSS
+- Toolbar
 
 ## [0.1.0] - 2018-02-09
 ### Added
