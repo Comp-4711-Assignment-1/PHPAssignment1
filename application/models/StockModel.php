@@ -5,8 +5,8 @@
  * @author Benny Wang
  * 
  */
-class SightModel extends CSV_Model{
+class StockModel extends CSV_Model{
     function __construct() {
-        parent::__construct('assets/database/StockModel.csv','StockID');
+        parent::__construct('assets/database/StockData.csv','StockID');
     }
 }
