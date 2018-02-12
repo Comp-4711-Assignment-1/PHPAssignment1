@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [1.3.0] - 2018-02-11
 ## Changed
 - Homepage now displays a set and its stats
+- Sets can now be selected by a dropdown menu
 
 ## [1.2.0] - 2018-02-11
 ## Changed

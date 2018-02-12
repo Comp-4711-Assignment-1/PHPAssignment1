@@ -10,7 +10,7 @@
 <div class="row">
 	<div class="col-6">
 		<div style="dispaly: block;">
-			<img src="assets/images/Background.png"
+			<img src="../assets/images/Background.png"
 				style="position: relative; width: 640px; height: 640px;" />
 			{sight}
 			{stock}
