@@ -19,7 +19,6 @@ class Welcome extends Application
 	 */
 	public function index()
 	{
-		$this->data['pagetitle'] = 'Home';
 		$this->data['pagebody'] = 'Home';
 
 		$this->equipSet(1);
@@ -27,6 +26,8 @@ class Welcome extends Application
 
 	public function equipSet($key)
 	{
+		$this->data['pagetitle'] = 'Home - Set ' . $key;
+
 		$this->load->model('SetModel');
 		$set = $this->SetModel->get($key);
 		$itemsList = array();
