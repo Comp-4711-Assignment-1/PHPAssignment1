@@ -15,26 +15,52 @@ class Catalog extends Application
 	{
 		$this->data['pagetitle'] = 'App name - Catalog';
 		$this->data['pagebody'] = 'Catalog';
-		
-		$this->load->model('ItemModel');
 
-		$allItems = $this->ItemModel->all();
 		$itemsArray = array();
 
-		foreach ($allItems as $currentItem)
+		// Load barrels
+		$this->load->model('BarrelModel');
+		$barrels = $this->BarrelModel->all();
+		$itemsArray = $this->addToList($barrels, $itemsArray);
+
+		// Load bodies
+		$this->load->model('BodyModel');
+		$bodies = $this->BodyModel->all();
+		$itemsArray = $this->addToList($bodies, $itemsArray);
+
+		// Load grips
+		$this->load->model('GripModel');
+		$grips = $this->GripModel->all();
+		$itemsArray = $this->addToList($grips, $itemsArray);
+
+		// Load sights
+		$this->load->model('SightModel');
+		$sights = $this->SightModel->all();
+		$itemsArray = $this->addToList($sights, $itemsArray);	
+
+		// Load stock
+		$this->load->model('StockModel');
+		$stocks = $this->StockModel->all();
+		$itemsArray = $this->addToList($stocks, $itemsArray);
+
+		$this->data['items'] = $itemsArray;
+		$this->render(); 
+	}
+
+	public function addToList($new, $old)
+	{
+		foreach ($new as $n)
 		{
-			array_push($itemsArray, array(
-				'name' => $currentItem->name,
-				'desc' => $currentItem->desc,
-				'attr1' => $currentItem->attr1,
-				'attr2' => $currentItem->attr2,
-				'attr3' => $currentItem->attr3,
-				'img' => '<img src="' . $currentItem->img . '">'
+			array_push($old, array(
+				'name' => $n->Name,
+				'desc' => $n->Description,
+				'acc' => $n->Accuracy,
+				'fr' => $n->FireRate,
+				'dmg' => $n->Damage,
+				'img' => '<img src="' . $n->Filename . '" class="img-fluid">'
 			));
 		}
 
-		$this->data['items'] = $itemsArray;
-
-		$this->render(); 
+		return $old;
 	}
 }
