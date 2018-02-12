@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.1.3] - 2018-02-11
+## Added
+- Background image
+
 ## [1.1.2] - 2018-02-11
 ## Added
 - Images and Data .CSVs
