@@ -51,6 +51,8 @@
 <div class="row">
 	<div class="col-12">
 		<div class="dropdown text-center">
+			{create}
+			{customize}
 			<button class="btn btn-lg btn-primary dropdown-toggle" 
 					type="button" 
 					id="dropdownMenuButton" 

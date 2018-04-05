@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.2.0] - 2018-20-11
+- Added user roles
+- Added front end features to show user roles
+
 ## [1.1.6] - 2018-04-05
 ## Added
 - Add unit tests
