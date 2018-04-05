@@ -25,27 +25,27 @@ class Catalog extends Application
 		// Load barrels
 		$this->load->model('BarrelModel');
 		$barrels = $this->BarrelModel->all();
-		$itemsArray = $this->addToList(CATEGORY_BARREL, $barrels, $itemsArray, $role);
+		$barrelsArray = $this->addToList(CATEGORY_BARREL, $barrels, $barrelsArray, $role);
 
 		// Load bodies
 		$this->load->model('BodyModel');
 		$bodies = $this->BodyModel->all();
-		$itemsArray = $this->addToList(CATEGORY_BODY, $bodies, $itemsArray, $role);
+		$bodiesArray = $this->addToList(CATEGORY_BODY, $bodies, $bodiesArray, $role);
 
 		// Load grips
 		$this->load->model('GripModel');
 		$grips = $this->GripModel->all();
-		$itemsArray = $this->addToList(CATEGORY_GRIP, $grips, $itemsArray, $role);
+		$gripsArray = $this->addToList(CATEGORY_GRIP, $grips, $gripsArray, $role);
 
 		// Load sights
 		$this->load->model('SightModel');
 		$sights = $this->SightModel->all();
-		$itemsArray = $this->addToList(CATEGORY_SIGHT, $sights, $itemsArray, $role);	
+		$sightsArray = $this->addToList(CATEGORY_SIGHT, $sights, $sightsArray, $role);	
 
 		// Load stock
 		$this->load->model('StockModel');
 		$stocks = $this->StockModel->all();
-		$itemsArray = $this->addToList(CATEGORY_STOCK, $stocks, $itemsArray, $role);
+		$stocksArray = $this->addToList(CATEGORY_STOCK, $stocks, $stocksArray, $role);
 
 		$this->data['barrels'] = $barrelsArray;
 		$this->data['bodies'] = $bodiesArray;
