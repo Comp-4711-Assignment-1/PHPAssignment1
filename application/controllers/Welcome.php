@@ -58,8 +58,8 @@ class Welcome extends Application
 
 		if ($role == ROLE_USER || $role == ROLE_ADMIN)
 		{
-			$this->data['customize'] = '<a href="" role="button" class="btn btn-lg btn-warning" style="color: white;">Customize Set</a>';
-			$this->data['create'] = '<a href="" role="button" class="btn btn-lg btn-success">Create Set</a>';
+			$this->data['customize'] = '<a href="/Set/Edit/' . $key . '" role="button" class="btn btn-lg btn-warning" style="color: white;">Edit Set</a>';
+			$this->data['create'] = '<a href="/Set/Create" role="button" class="btn btn-lg btn-success">Create Set</a>';
 		}
 		else
 		{
