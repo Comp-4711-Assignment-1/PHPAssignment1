@@ -25,27 +25,27 @@ class Catalog extends Application
 		// Load barrels
 		$this->load->model('BarrelModel');
 		$barrels = $this->BarrelModel->all();
-		$barrelsArray = $this->addToList($barrels, $barrelsArray, $role);
+		$itemsArray = $this->addToList(CATEGORY_BARREL, $barrels, $itemsArray, $role);
 
 		// Load bodies
 		$this->load->model('BodyModel');
 		$bodies = $this->BodyModel->all();
-		$bodiesArray = $this->addToList($bodies, $bodiesArray, $role);
+		$itemsArray = $this->addToList(CATEGORY_BODY, $bodies, $itemsArray, $role);
 
 		// Load grips
 		$this->load->model('GripModel');
 		$grips = $this->GripModel->all();
-		$gripsArray = $this->addToList($grips, $gripsArray, $role);
+		$itemsArray = $this->addToList(CATEGORY_GRIP, $grips, $itemsArray, $role);
 
 		// Load sights
 		$this->load->model('SightModel');
 		$sights = $this->SightModel->all();
-		$sightsArray = $this->addToList($sights, $sightsArray, $role);	
+		$itemsArray = $this->addToList(CATEGORY_SIGHT, $sights, $itemsArray, $role);	
 
 		// Load stock
 		$this->load->model('StockModel');
 		$stocks = $this->StockModel->all();
-		$stocksArray = $this->addToList($stocks, $stocksArray, $role);
+		$itemsArray = $this->addToList(CATEGORY_STOCK, $stocks, $itemsArray, $role);
 
 		$this->data['barrels'] = $barrelsArray;
 		$this->data['bodies'] = $bodiesArray;
@@ -55,7 +55,7 @@ class Catalog extends Application
 		$this->render(); 
 	}
 
-	public function addToList($new, $old, $role)
+	public function addToList($category, $new, $old, $role)
 	{
 		foreach ($new as $n)
 		{
@@ -71,7 +71,7 @@ class Catalog extends Application
 
 			if ($role == ROLE_ADMIN)
 			{
-				$tmp['edit'] = '<a href="" role="button" class="btn btn-lg btn-danger">Edit</a>';
+				$tmp['edit'] = '<a href="/Item/Edit/' . $category . '/' . $n->id . '" role="button" class="btn btn-lg btn-danger">Edit</a>';
 			}
 
 			array_push($old, $tmp);
