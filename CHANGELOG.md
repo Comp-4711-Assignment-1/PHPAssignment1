@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+##[1.2.1] - 2018-04-05
+##Changed
+- Sorted the catalog by category
+
+
 ## [1.1.5] - 2018-02-11
 ## Added
 - Fixed images not loading correctly on deployment server.

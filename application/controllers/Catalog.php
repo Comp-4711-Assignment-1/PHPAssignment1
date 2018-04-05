@@ -16,34 +16,42 @@ class Catalog extends Application
 		$this->data['pagetitle'] = 'App name - Catalog';
 		$this->data['pagebody'] = 'Catalog';
 
-		$itemsArray = array();
+		$barrelsArray = array();
+		$bodiesArray = array();
+		$gripsArray = array();
+		$sightsArray = array();
+		$stocksArray = array();
 
 		// Load barrels
 		$this->load->model('BarrelModel');
 		$barrels = $this->BarrelModel->all();
-		$itemsArray = $this->addToList($barrels, $itemsArray);
+		$barrelsArray = $this->addToList($barrels, $barrelsArray);
 
 		// Load bodies
 		$this->load->model('BodyModel');
 		$bodies = $this->BodyModel->all();
-		$itemsArray = $this->addToList($bodies, $itemsArray);
+		$bodiesArray = $this->addToList($bodies, $bodiesArray);
 
 		// Load grips
 		$this->load->model('GripModel');
 		$grips = $this->GripModel->all();
-		$itemsArray = $this->addToList($grips, $itemsArray);
+		$gripsArray = $this->addToList($grips, $gripsArray);
 
 		// Load sights
 		$this->load->model('SightModel');
 		$sights = $this->SightModel->all();
-		$itemsArray = $this->addToList($sights, $itemsArray);	
+		$sightsArray = $this->addToList($sights, $sightsArray);	
 
 		// Load stock
 		$this->load->model('StockModel');
 		$stocks = $this->StockModel->all();
-		$itemsArray = $this->addToList($stocks, $itemsArray);
+		$stocksArray = $this->addToList($stocks, $stocksArray);
 
-		$this->data['items'] = $itemsArray;
+		$this->data['barrels'] = $barrelsArray;
+		$this->data['bodies'] = $bodiesArray;
+		$this->data['grips'] = $gripsArray;
+		$this->data['sights'] = $sightsArray;
+		$this->data['stocks'] = $stocksArray;
 		$this->render(); 
 	}
 
