@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.2.0] - 2018-20-11
+- Added user roles
+- Added front end features to show user roles
+
 ## [1.1.5] - 2018-02-11
 ## Added
 - Fixed images not loading correctly on deployment server.

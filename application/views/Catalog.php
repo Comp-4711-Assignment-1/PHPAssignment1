@@ -9,19 +9,20 @@
 </div>
 {items}
 <div class="row border-bottom">
-	<div class="col-3 text-center">
+	<div class="col-2 offset-2 text-center">
 		<h2>{name}</h2>
 	</div>
-	<div class="col-3" style="margin: auto;">
+	<div class="col-2" style="margin: auto;">
 		{img}
 	</div>
-	<div class="col-3 text-center">
+	<div class="col-2 text-center" style="margin: 1%;">
 		<p>{desc}<p>
-	</div>
-	<div class="col-3 text-center">
 		Accuracy: {acc}<br />
 		Fire Rate: {fr}<br />
 		Damage: {dmg}
+	</div>
+	<div class="col-2" style="margin: auto; display: flex; align-items: center;">
+		{edit}
 	</div>
 </div>
 {/items}
