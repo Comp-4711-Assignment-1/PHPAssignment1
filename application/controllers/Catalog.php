@@ -4,7 +4,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Catalog extends Application
 {
-
 	/**
 	 * Index Page for this controller.
 	 *
@@ -13,52 +12,69 @@ class Catalog extends Application
 	 */
 	public function index()
 	{
-		$this->data['pagetitle'] = 'App name - Catalog';
+		$role = $this->session->userdata('userrole');
+		$this->data['pagetitle'] = 'App name - Catalog' . " - " . $role;
 		$this->data['pagebody'] = 'Catalog';
 
-		$itemsArray = array();
+		$barrelsArray = array();
+		$bodiesArray = array();
+		$gripsArray = array();
+		$sightsArray = array();
+		$stocksArray = array();
 
 		// Load barrels
 		$this->load->model('BarrelModel');
 		$barrels = $this->BarrelModel->all();
-		$itemsArray = $this->addToList($barrels, $itemsArray);
+		$barrelsArray = $this->addToList($barrels, $barrelsArray, $role);
 
 		// Load bodies
 		$this->load->model('BodyModel');
 		$bodies = $this->BodyModel->all();
-		$itemsArray = $this->addToList($bodies, $itemsArray);
+		$bodiesArray = $this->addToList($bodies, $bodiesArray, $role);
 
 		// Load grips
 		$this->load->model('GripModel');
 		$grips = $this->GripModel->all();
-		$itemsArray = $this->addToList($grips, $itemsArray);
+		$gripsArray = $this->addToList($grips, $gripsArray, $role);
 
 		// Load sights
 		$this->load->model('SightModel');
 		$sights = $this->SightModel->all();
-		$itemsArray = $this->addToList($sights, $itemsArray);	
+		$sightsArray = $this->addToList($sights, $sightsArray, $role);	
 
 		// Load stock
 		$this->load->model('StockModel');
 		$stocks = $this->StockModel->all();
-		$itemsArray = $this->addToList($stocks, $itemsArray);
+		$stocksArray = $this->addToList($stocks, $stocksArray, $role);
 
-		$this->data['items'] = $itemsArray;
+		$this->data['barrels'] = $barrelsArray;
+		$this->data['bodies'] = $bodiesArray;
+		$this->data['grips'] = $gripsArray;
+		$this->data['sights'] = $sightsArray;
+		$this->data['stocks'] = $stocksArray;
 		$this->render(); 
 	}
 
-	public function addToList($new, $old)
+	public function addToList($new, $old, $role)
 	{
 		foreach ($new as $n)
 		{
-			array_push($old, array(
+			$tmp = array(
 				'name' => $n->Name,
 				'desc' => $n->Description,
 				'acc' => $n->Accuracy,
 				'fr' => $n->FireRate,
 				'dmg' => $n->Damage,
-				'img' => '<img src="/' . strtolower($n->Filename) . '" class="img-fluid">'
-			));
+				'img' => '<img src="/' . strtolower($n->Filename) . '" class="img-fluid">',
+				'edit' => ''
+			);
+
+			if ($role == ROLE_ADMIN)
+			{
+				$tmp['edit'] = '<a href="" role="button" class="btn btn-lg btn-danger">Edit</a>';
+			}
+
+			array_push($old, $tmp);
 		}
 
 		return $old;

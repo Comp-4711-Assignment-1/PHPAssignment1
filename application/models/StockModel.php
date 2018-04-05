@@ -7,6 +7,6 @@
  */
 class StockModel extends CSV_Model{
     function __construct() {
-        parent::__construct('assets/database/StockData.csv','StockID');
+        parent::__construct('../assets/database/StockData.csv','StockID');
     }
 }

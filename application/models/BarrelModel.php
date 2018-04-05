@@ -7,6 +7,6 @@
  */
 class BarrelModel extends CSV_Model{
     function __construct() {
-        parent::__construct('assets/database/BarrelData.csv','BarrelID');
+        parent::__construct('../assets/database/BarrelData.csv','BarrelID');
     }
 }

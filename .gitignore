@@ -18,3 +18,8 @@ application/logs/*
 /vendor/
 /nbproject/private/
 /nbproject/
+
+
+composer.lock
+
+tmp/
