@@ -88,3 +88,10 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 defined('ROLE_ADMIN') OR define('ROLE_ADMIN', 'Admin');
 defined('ROLE_USER') OR define('ROLE_USER', 'User');
 defined('ROLE_GUEST') OR define('ROLE_GUEST', 'Guest');
+
+// Categories
+defined('CATEGORY_SIGHT') OR define('CATEGORY_SIGHT', 'sight');
+defined('CATEGORY_BARREL') OR define('CATEGORY_BARREL', 'barrel');
+defined('CATEGORY_BODY') OR define('CATEGORY_BODY', 'body');
+defined('CATEGORY_STOCK') OR define('CATEGORY_STOCK', 'stock');
+defined('CATEGORY_GRIP') OR define('CATEGORY_GRIP', 'grip');
