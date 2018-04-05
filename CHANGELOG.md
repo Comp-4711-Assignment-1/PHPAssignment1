@@ -6,7 +6,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+##[1.2.1] - 2018-04-05
+## Changed
+- Sorted the catalog by category
+
 ## [1.2.0] - 2018-20-11
+## Added
 - Added user roles
 - Added front end features to show user roles
 
