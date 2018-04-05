@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+##[1.2.3] - 2018-04-05
+## Fixed
+- Catalog page works again
+
 ##[1.2.2] - 2018-04-05
 ## Changed
 - Sorted the catalog by category
