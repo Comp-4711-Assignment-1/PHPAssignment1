@@ -24,7 +24,8 @@ class Welcome extends Application
 
 	public function equipSet($key)
 	{
-		$this->data['pagetitle'] = 'Home - Set ' . $key;
+		$role = $this->session->userdata('userrole');
+		$this->data['pagetitle'] = 'Home - Set ' . $key . " - " . $role;
 		$this->data['pagebody'] = 'Home';
 
 		$this->load->model('SetModel');
@@ -54,6 +55,17 @@ class Welcome extends Application
 		$this->data['tAcc'] = $totalAcc;
 		$this->data['tFr'] = $totalFr; 
 		$this->data['tDmg'] = $totalDmg;
+
+		if ($role == ROLE_USER || $role == ROLE_ADMIN)
+		{
+			$this->data['customize'] = '<a href="" role="button" class="btn btn-lg btn-warning" style="color: white;">Customize Set</a>';
+			$this->data['create'] = '<a href="" role="button" class="btn btn-lg btn-success">Create Set</a>';
+		}
+		else
+		{
+			$this->data['customize'] = '';
+			$this->data['create'] = '';
+		}
 
 		$this->render(); 
 	}

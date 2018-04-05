@@ -13,24 +13,34 @@
     <body>
 
         <nav class="navbar navbar-toggleable-md navbar-light bg-faded" style="background-color: lightblue;">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="/">Home</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="/">Home</a>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-            <li class="nav-item text-center">
-                <a class="nav-link" href="/">Home</a>
-            </li>
-            <li class="nav-item text-center">
-                <a class="nav-link" href="/Catalog">Catalog</a>
-            </li>
-            <li class="nav-item text-center">
-                <a class="nav-link" href="/About">About</a>
-            </li>
-            </ul>
-        </div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item text-center">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item text-center">
+                        <a class="nav-link" href="/Catalog">Catalog</a>
+                    </li>
+                    <li class="nav-item text-center">
+                        <a class="nav-link" href="/About">About</a>
+                    </li>
+                    <li class="dropdown nav-item text-center">
+                        <a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#">User Role<b class="caret"></b></a>
+                        <div class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                            <a class="dropdown-item text-center" href="/roles/actor/Admin">Admin</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item text-center" href="/roles/actor/User">User</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item text-center" href="/roles/actor/Guest">Guest</a>
+                        </div>
+                    </li> 
+                </ul>
+            </div>
         </nav>
 
         <div id="container">
