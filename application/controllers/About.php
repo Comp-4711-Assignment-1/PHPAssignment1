@@ -13,8 +13,26 @@ class About extends Application
 	 */
 	public function index()
 	{
-		$this->data['pagetitle'] = 'App name - About';
+		$teamList = array();
+		$this->data['pagetitle'] = 'About';
 		$this->data['pagebody'] = 'About';
+		array_push($teamList, $this->addTeamMember("Benny Wang"));
+		array_push($teamList, $this->addTeamMember("Tim Bruecker"));
+		array_push($teamList, $this->addTeamMember("Will Murphy"));
+		$this->data['teamMembers'] = $teamList;
+		
 		$this->render(); 
+	}
+
+	/**
+	 * Adds a team member.
+	 * @return teamMember The new team member
+	 */
+	function addTeamMember($name) 
+	{
+		$teamMember = array(
+			'name' => $name
+		);
+		return $teamMember;
 	}
 }

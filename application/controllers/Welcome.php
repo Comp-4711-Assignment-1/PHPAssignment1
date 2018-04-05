@@ -62,7 +62,7 @@ class Welcome extends Application
 	{
 		$this->load->model('SightModel');
 		$x = $this->SightModel->get($key);
-		$this->data['sight'] = '<img src="../' . $x->Filename . '"
+		$this->data['sight'] = '<img src="/' . strtolower($x->Filename) . '"
 									style="position: absolute; 
 									width: 190px; height: 50px; 
 									top: 120px; left: 250px;" />';
@@ -73,7 +73,7 @@ class Welcome extends Application
 	{
 		$this->load->model('StockModel');
 		$x = $this->StockModel->get($key);
-		$this->data['stock'] = '<img src="../' . $x->Filename . '"
+		$this->data['stock'] = '<img src="/' . strtolower($x->Filename) . '"
 									style="position: absolute; 
 									width: 150px; height: 91px; 
 									top: 250px; left: 40px;" />';
@@ -84,7 +84,7 @@ class Welcome extends Application
 	{
 		$this->load->model('BodyModel');
 		$x = $this->BodyModel->get($key);
-		$this->data['body'] = '<img src="../' . $x->Filename . '"
+		$this->data['body'] = '<img src="/' . strtolower($x->Filename) . '"
 									style="position: absolute; 
 									width: 240px; height: 70px; 
 									top: 260px; left: 228px;" />';
@@ -95,7 +95,7 @@ class Welcome extends Application
 	{
 		$this->load->model('BarrelModel');
 		$x = $this->BarrelModel->get($key);
-		$this->data['barrel'] = '<img src="../' . $x->Filename . '"
+		$this->data['barrel'] = '<img src="/' . strtolower($x->Filename) . '"
 									style="position: absolute; 
 									width: 150px; height: 40px; 
 									top: 262px; left: 492px;" />';
@@ -106,7 +106,7 @@ class Welcome extends Application
 	{
 		$this->load->model('GripModel');
 		$x = $this->GripModel->get($key);
-		$this->data['grip'] = '<img src="../' . $x->Filename . '"
+		$this->data['grip'] = '<img src="/' . strtolower($x->Filename) . '"
 									style="position: absolute; 
 									width: 100px; height: 135px; 
 									top: 400px; left: 290px;" />';
