@@ -7,6 +7,6 @@
  */
 class BodyModel extends CSV_Model{
     function __construct() {
-        parent::__construct('assets/database/BodyData.csv','BodyID');
+        parent::__construct('../assets/database/BodyData.csv','BodyID');
     }
 }

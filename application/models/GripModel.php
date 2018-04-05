@@ -7,6 +7,6 @@
  */
 class GripModel extends CSV_Model{
     function __construct() {
-        parent::__construct('assets/database/GripData.csv','GripID');
+        parent::__construct('../assets/database/GripData.csv','GripID');
     }
 }
