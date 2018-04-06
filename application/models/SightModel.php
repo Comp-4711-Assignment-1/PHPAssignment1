@@ -7,6 +7,6 @@
  */
 class SightModel extends CSV_Model{
     function __construct() {
-        parent::__construct('assets/database/SightData.csv','id');
+        parent::__construct('../assets/database/SightData.csv','id');
     }
 }

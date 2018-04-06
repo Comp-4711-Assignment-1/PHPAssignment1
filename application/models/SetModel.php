@@ -7,6 +7,6 @@
  */
 class SetModel extends CSV_Model{
     function __construct() {
-        parent::__construct('assets/database/SetData.csv','id');
+        parent::__construct('../assets/database/SetData.csv','id');
     }
 }

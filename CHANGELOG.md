@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 ##[1.2.4] - 2018-04-06
+## Fixed
+- Model paths are now correct for the unit tests
 ## Added
 - Added Travis CI
 
