@@ -133,12 +133,10 @@ class Set extends Application
 		if ($this->form_validation->run())
 		{
 			$this->SetModel->update($set);
-			echo 'updated set';
 		} 
 		else
 		{
 			$this->alert('<strong>Validation errors!<strong><br>' . validation_errors(), 'danger');
-			echo 'validation error';
 		}
 
 		redirect('/set/' . $set->id); 
