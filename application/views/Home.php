@@ -62,8 +62,9 @@
 				Sets
 			</button>
 			<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-				<a class="dropdown-item" href="/set/1">Set 1</a>
-				<a class="dropdown-item" href="/set/2">Set 2</a>
+				{sets}
+					{set}
+				{/sets}
 			</div>
 		</div>
 	</div>
