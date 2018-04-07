@@ -77,7 +77,7 @@ class Set extends Application
 			$this->alert('<strong>Validation errors!<strong><br>' . validation_errors(), 'danger');
 		}
 
-		redirect('/Set/' . $this->SetModel->highest());
+		redirect('/set/' . $this->SetModel->highest());
 	}
 
 	public function Edit($set)
