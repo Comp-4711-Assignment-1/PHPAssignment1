@@ -24,7 +24,8 @@ class Welcome extends Application
 
 	public function equipSet($key)
 	{
-		$this->data['pagetitle'] = 'Home - Set ' . $key;
+		$role = $this->session->userdata('userrole');
+		$this->data['pagetitle'] = 'Home - Set ' . $key . " - " . $role;
 		$this->data['pagebody'] = 'Home';
 
 		$this->load->model('SetModel');
@@ -55,7 +56,32 @@ class Welcome extends Application
 		$this->data['tFr'] = $totalFr; 
 		$this->data['tDmg'] = $totalDmg;
 
+		if ($role == ROLE_USER || $role == ROLE_ADMIN)
+		{
+			$this->data['customize'] = '<a href="/Set/edit/' . $key . '" role="button" class="btn btn-lg btn-warning" style="color: white;">Edit Set</a>';
+			$this->data['create'] = '<a href="/Set/create" role="button" class="btn btn-lg btn-success">Create Set</a>';
+		}
+		else
+		{
+			$this->data['customize'] = '';
+			$this->data['create'] = '';
+		}
+
+		$this->loadSets();
+
 		$this->render(); 
+	}
+
+	private function loadSets()
+	{
+		$this->load->model('SetModel');
+		
+		$sets = array();
+		foreach ($this->SetModel->all() as $set)
+		{
+			array_push($sets, array('set' => '<a class="dropdown-item" href="/set/' . $set->id . '">Set ' . $set->id . '</a>'));
+		}
+		$this->data['sets'] = $sets;
 	}
 
 	public function getSight($key)

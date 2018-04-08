@@ -1,0 +1,3 @@
+id,Name,Description,Accuracy,FireRate,Damage,Filename
+1,"Carbine Barrel","Short Range Barrel",-1,3,2,assets/images/barrel1.PNG
+2,"DMR Barrel","Long Range Barrel",5,-3,5,assets/images/barrel2.PNG
