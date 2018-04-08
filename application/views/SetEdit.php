@@ -7,7 +7,7 @@
 
 	<div class="row">
 		<div class="col-8 offset-2">
-			<form action="/Set/Change" method="post" style="padding: 10%;">
+			<form action="/Set/change" method="post" style="padding: 10%;">
 				{id}
 				<div class="form-row">
 					<div class="form-group col-4 offset-4">

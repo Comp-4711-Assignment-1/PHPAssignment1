@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Item extends Application
 {
 
-	public function Edit($category, $id)
+	public function edit($category, $id)
 	{
 		$role = $this->session->userdata('userrole');
 		if ($role == ROLE_GUEST)
@@ -51,41 +51,66 @@ class Item extends Application
 		$this->data['acc'] = $item->Accuracy;
 		$this->data['fr'] = $item->FireRate;
 		$this->data['dam'] = $item->Damage;
-		$this->data['img'] = '<img src="/' . strtolower($item->Filename) . '" class="img-fluid">';
+		$this->data['img'] = $item->Filename;
 		$this->render();
 	}
 
-	public function save($category, $id)
+	public function save()
 	{
+		$role = $this->session->userdata('userrole');
+		if ($role == ROLE_GUEST)
+		{
+			redirect($_SERVER['HTTP_REFERER']); // back where we came from
+			return;
+		}
+
+		$this->load->library('form_validation');
+		$set = $this->input->post();
+		$set = (object) $set;
+		$category = $set->category;
+		unset($set->category);
+
+
 		if($category == 'barrel')
 		{
+			
 			$this->load->model('BarrelModel');
-			$this->load->library('form_validation');
-			$this->form_validation->set_rules($this->SetModel->rules());
+			$this->form_validation->set_rules($this->BarrelModel->rules());
+
+			if ($this->form_validation->run())
+			{
+				$this->BarrelModel->update($set);
+				redirect('/Catalog/');
+			} 
+			else
+			{
+				$errors = validation_errors();
+				echo $errors;
+			}
 		}
 		else if($category == 'body')
 		{
 			$this->load->model('BodyModel');
-			$this->load->library('form_validation');
-			$this->form_validation->set_rules($this->SetModel->rules());
+			$this->form_validation->set_rules($this->BodyModel->rules());
+			$this->BodyModel->update($set);
 		}
 		else if($category == 'grip')
 		{
 			$this->load->model('GripModel');
-			$this->load->library('form_validation');
-			$this->form_validation->set_rules($this->SetModel->rules());
+			$this->form_validation->set_rules($this->GripModel->rules());
+			$this->GripModel->update($set);
 		}
 		else if($category == 'sight')
 		{
 			$this->load->model('SightModel');
-			$this->load->library('form_validation');
-			$this->form_validation->set_rules($this->SetModel->rules());
+			$this->form_validation->set_rules($this->SightModel->rules());
+			$this->SightModel->update($set);
 		}
 		else if($category == 'stock')
 		{
 			$this->load->model('StockModel');
-			$this->load->library('form_validation');
-			$this->form_validation->set_rules($this->SetModel->rules());
+			$this->form_validation->set_rules($this->StockModel->rules());
+			$this->StockModel->update($set);
 		}
 
 		

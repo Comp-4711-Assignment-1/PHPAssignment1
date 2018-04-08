@@ -13,13 +13,15 @@
 		<div class="col-2 text-center">
 		</div>
 		<div class="col-8 text-center">
-			<p>{img}</p>
+			<img src="/{img}" class="img-fluid">
 		</div>
 		<div class="col-2 text-center">
 		</div>
 	</div>
 
 	<form action="/Item/Save" method="post">
+
+		<input type="hidden" name="id" value="{id}">
 		<div class="form-row">
 			<div class="col-xl text-center" style="margin-bottom: 2em">
 				<h5>Name</h5>
@@ -54,6 +56,8 @@
 				<input type="text" name="dam" value="{dam}">
 			</div>
 		</div>
+		<input type="hidden" name="img" value={img}>
+		<input type="hidden" name="category" value="{category}">
 
 		<div class="form-row">
 			<div class="col-xl-12 text-center">

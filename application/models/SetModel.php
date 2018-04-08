@@ -12,11 +12,11 @@ class SetModel extends CSV_Model{
 
     public function rules() {
         $config = array(
-            ['field' => 'SightID', 'label' => 'sight', 'rules' => 'integer'],
-            ['field' => 'BarrelID', 'label' => 'stock', 'rules' => 'integer'],
-            ['field' => 'BodyID', 'label' => 'body', 'rules' => 'integer'],
-            ['field' => 'StockID', 'label' => 'barrel', 'rules' => 'integer'],
-            ['field' => 'GripID', 'label' => 'grip', 'rules' => 'integer'],
+            ['field' => 'sight', 'label' => 'sightID', 'rules' => 'integer'],
+            ['field' => 'stock', 'label' => 'stockID', 'rules' => 'integer'],
+            ['field' => 'body', 'label' => 'bodyID', 'rules' => 'integer'],
+            ['field' => 'barrel', 'label' => 'barrelID', 'rules' => 'integer'],
+            ['field' => 'grip', 'label' => 'gripID', 'rules' => 'integer'],
         );
         return $config;
     }
