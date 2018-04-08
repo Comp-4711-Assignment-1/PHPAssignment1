@@ -26,22 +26,22 @@ class Item extends Application
 		else if($category == 'body')
 		{
 			$this->load->model('BodyModel');
-			$item = $this->BodyModel->all();
+			$item = $this->BodyModel->get($id);
 		}
 		else if($category == 'grip')
 		{
 			$this->load->model('GripModel');
-			$item = $this->GripModel->all();
+			$item = $this->GripModel->get($id);
 		}
 		else if($category == 'sight')
 		{
 			$this->load->model('SightModel');
-			$item = $this->SightModel->all();
+			$item = $this->SightModel->get($id);
 		}
 		else if($category == 'stock')
 		{
 			$this->load->model('StockModel');
-			$item = $this->StockModel->all();
+			$item = $this->StockModel->get($id);
 		}
 		
 		$this->data['id'] = $id;
@@ -51,7 +51,7 @@ class Item extends Application
 		$this->data['acc'] = $item->Accuracy;
 		$this->data['fr'] = $item->FireRate;
 		$this->data['dam'] = $item->Damage;
-		$this->data['img'] = $item->Filename;
+		$this->data['img'] = strtolower($item->Filename);
 		$this->render();
 	}
 
