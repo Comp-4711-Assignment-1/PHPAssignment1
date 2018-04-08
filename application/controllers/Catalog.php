@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Catalog extends Application
 {
+
 	/**
 	 * Index Page for this controller.
 	 *
@@ -12,69 +13,52 @@ class Catalog extends Application
 	 */
 	public function index()
 	{
-		$role = $this->session->userdata('userrole');
-		$this->data['pagetitle'] = 'App name - Catalog' . " - " . $role;
+		$this->data['pagetitle'] = 'App name - Catalog';
 		$this->data['pagebody'] = 'Catalog';
 
-		$barrelsArray = array();
-		$bodiesArray = array();
-		$gripsArray = array();
-		$sightsArray = array();
-		$stocksArray = array();
+		$itemsArray = array();
 
 		// Load barrels
 		$this->load->model('BarrelModel');
 		$barrels = $this->BarrelModel->all();
-		$barrelsArray = $this->addToList(CATEGORY_BARREL, $barrels, $barrelsArray, $role);
+		$itemsArray = $this->addToList($barrels, $itemsArray);
 
 		// Load bodies
 		$this->load->model('BodyModel');
 		$bodies = $this->BodyModel->all();
-		$bodiesArray = $this->addToList(CATEGORY_BODY, $bodies, $bodiesArray, $role);
+		$itemsArray = $this->addToList($bodies, $itemsArray);
 
 		// Load grips
 		$this->load->model('GripModel');
 		$grips = $this->GripModel->all();
-		$gripsArray = $this->addToList(CATEGORY_GRIP, $grips, $gripsArray, $role);
+		$itemsArray = $this->addToList($grips, $itemsArray);
 
 		// Load sights
 		$this->load->model('SightModel');
 		$sights = $this->SightModel->all();
-		$sightsArray = $this->addToList(CATEGORY_SIGHT, $sights, $sightsArray, $role);	
+		$itemsArray = $this->addToList($sights, $itemsArray);	
 
 		// Load stock
 		$this->load->model('StockModel');
 		$stocks = $this->StockModel->all();
-		$stocksArray = $this->addToList(CATEGORY_STOCK, $stocks, $stocksArray, $role);
+		$itemsArray = $this->addToList($stocks, $itemsArray);
 
-		$this->data['barrels'] = $barrelsArray;
-		$this->data['bodies'] = $bodiesArray;
-		$this->data['grips'] = $gripsArray;
-		$this->data['sights'] = $sightsArray;
-		$this->data['stocks'] = $stocksArray;
+		$this->data['items'] = $itemsArray;
 		$this->render(); 
 	}
 
-	public function addToList($category, $new, $old, $role)
+	public function addToList($new, $old)
 	{
 		foreach ($new as $n)
 		{
-			$tmp = array(
+			array_push($old, array(
 				'name' => $n->Name,
 				'desc' => $n->Description,
 				'acc' => $n->Accuracy,
 				'fr' => $n->FireRate,
 				'dmg' => $n->Damage,
-				'img' => '<img src="/' . strtolower($n->Filename) . '" class="img-fluid">',
-				'edit' => ''
-			);
-
-			if ($role == ROLE_ADMIN)
-			{
-				$tmp['edit'] = '<a href="/Item/edit/' . $category . '/' . $n->id . '" role="button" class="btn btn-lg btn-danger">Edit</a>';
-			}
-
-			array_push($old, $tmp);
+				'img' => '<img src="/' . strtolower($n->Filename) . '" class="img-fluid">'
+			));
 		}
 
 		return $old;
