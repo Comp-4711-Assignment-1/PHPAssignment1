@@ -6,6 +6,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+##[1.2.5] = 2018-04-06
+## Added
+- Implemented ability to create sets
+
+##[1.2.4] - 2018-04-06
+## Fixed
+- Model paths are now correct for the unit tests
+## Added
+- Added Travis CI
+
 ##[1.2.3] - 2018-04-05
 ## Fixed
 - Catalog page works again

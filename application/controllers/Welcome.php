@@ -67,7 +67,21 @@ class Welcome extends Application
 			$this->data['create'] = '';
 		}
 
+		$this->loadSets();
+
 		$this->render(); 
+	}
+
+	private function loadSets()
+	{
+		$this->load->model('SetModel');
+		
+		$sets = array();
+		foreach ($this->SetModel->all() as $set)
+		{
+			array_push($sets, array('set' => '<a class="dropdown-item" href="/set/' . $set->id . '">Set ' . $set->id . '</a>'));
+		}
+		$this->data['sets'] = $sets;
 	}
 
 	public function getSight($key)
