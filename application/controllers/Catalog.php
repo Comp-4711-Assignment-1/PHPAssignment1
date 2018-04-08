@@ -71,7 +71,7 @@ class Catalog extends Application
 
 			if ($role == ROLE_ADMIN)
 			{
-				$tmp['edit'] = '<a href="/Item/Edit/' . $category . '/' . $n->id . '" role="button" class="btn btn-lg btn-danger">Edit</a>';
+				$tmp['edit'] = '<a href="/Item/edit/' . $category . '/' . $n->id . '" role="button" class="btn btn-lg btn-danger">Edit</a>';
 			}
 
 			array_push($old, $tmp);
