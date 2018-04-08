@@ -92,25 +92,65 @@ class Item extends Application
 		{
 			$this->load->model('BodyModel');
 			$this->form_validation->set_rules($this->BodyModel->rules());
-			$this->BodyModel->update($set);
+			
+			if ($this->form_validation->run())
+			{
+				$this->BodyModel->update($set);
+				redirect('/Catalog/');
+			} 
+			else
+			{
+				$errors = validation_errors();
+				echo $errors;
+			}
 		}
 		else if($category == 'grip')
 		{
 			$this->load->model('GripModel');
 			$this->form_validation->set_rules($this->GripModel->rules());
-			$this->GripModel->update($set);
+			
+			if ($this->form_validation->run())
+			{
+				$this->GripModel->update($set);
+				redirect('/Catalog/');
+			} 
+			else
+			{
+				$errors = validation_errors();
+				echo $errors;
+			}
 		}
 		else if($category == 'sight')
 		{
 			$this->load->model('SightModel');
 			$this->form_validation->set_rules($this->SightModel->rules());
-			$this->SightModel->update($set);
+			
+			if ($this->form_validation->run())
+			{
+				$this->SightModel->update($set);
+				redirect('/Catalog/');
+			} 
+			else
+			{
+				$errors = validation_errors();
+				echo $errors;
+			}
 		}
 		else if($category == 'stock')
 		{
 			$this->load->model('StockModel');
 			$this->form_validation->set_rules($this->StockModel->rules());
-			$this->StockModel->update($set);
+			
+			if ($this->form_validation->run())
+			{
+				$this->StockModel->update($set);
+				redirect('/Catalog/');
+			} 
+			else
+			{
+				$errors = validation_errors();
+				echo $errors;
+			}
 		}
 
 		
