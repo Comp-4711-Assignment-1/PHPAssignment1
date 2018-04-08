@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Set extends Application
 {
 
-	public function Create()
+	public function create()
 	{
 		$role = $this->session->userdata('userrole');
 		if ($role == ROLE_GUEST)
@@ -38,7 +38,7 @@ class Set extends Application
 		$this->render();
 	}
 
-	public function Add()
+	public function add()
 	{
 		$role = $this->session->userdata('userrole');
 		if ($role == ROLE_GUEST)
@@ -60,7 +60,6 @@ class Set extends Application
 			if (empty($sets->id))
 			{
 				$sets->id = $this->SetModel->highest() + 1;
-				var_dump($sets);
 				$this->SetModel->add($sets);
 			}
 			else
@@ -70,13 +69,12 @@ class Set extends Application
 		} 
 		else
 		{
-			$this->alert('<strong>Validation errors!<strong><br>' . validation_errors(), 'danger');
 		}
 
 		redirect('/set/' . $this->SetModel->highest());
 	}
 
-	public function Edit($set)
+	public function edit($set)
 	{
 		$role = $this->session->userdata('userrole');
 		if ($role == ROLE_GUEST)
@@ -113,7 +111,7 @@ class Set extends Application
 		$this->render();
 	}
 
-	public function Change()
+	public function change()
 	{
 		$role = $this->session->userdata('userrole');
 		if ($role == ROLE_GUEST)
@@ -127,7 +125,6 @@ class Set extends Application
 		$this->form_validation->set_rules($this->SetModel->rules());
 
 		$set = $this->input->post();
-		var_dump($set);
 		$set = (object) $set;  // convert back to object
 		// validate away
 		if ($this->form_validation->run())
@@ -136,7 +133,6 @@ class Set extends Application
 		} 
 		else
 		{
-			$this->alert('<strong>Validation errors!<strong><br>' . validation_errors(), 'danger');
 		}
 
 		redirect('/set/' . $set->id); 
