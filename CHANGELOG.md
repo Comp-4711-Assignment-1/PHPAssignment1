@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.2.6] - 2018-04-08
+## Fixed
+- Image links now lowercase
+- Got proper ID for all items
+
 ## [1.2.5] - 2018-04-08
 ## Added
 - Ability to edit Items
