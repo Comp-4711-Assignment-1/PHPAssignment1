@@ -6,7 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-##[1.2.5] = 2018-04-06
+##[1.2.5] - 2018-04-06
+## Added
+- Impelemented ability to edit sets
+
+##[1.2.5] - 2018-04-06
 ## Added
 - Implemented ability to create sets
 
